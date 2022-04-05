@@ -14,7 +14,8 @@ jobs:
     steps:
       - name: Build and upload snap
         id: build
-        uses: canonical/edgex-snap-testing/build@v2
+        # uses: canonical/edgex-snap-testing/build@v2
+        uses: canonical/edgex-snap-testing/build@main
     outputs:
       snap: ${{steps.build.outputs.snap}}
 
@@ -23,7 +24,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Download and test snap
-        uses: canonical/edgex-snap-testing/test@v2
+        # uses: canonical/edgex-snap-testing/test@v2
+        uses: canonical/edgex-snap-testing/test@main
         with:
           name: device-modbus
           snap: ${{needs.build.outputs.snap}}
